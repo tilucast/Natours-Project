@@ -4,7 +4,7 @@
 <img src="./img/natours4.png" align="center"></img>
 <img src="./img/natours5.png" align="center"></img>
 
-<h1 align="center">Nexter - your home, your freedom</h1>
+<h1 align="center">Outdoors - Is where life happens</h1>
 
 # Sobre o projeto
 
