@@ -1,0 +1,115 @@
+.popup{
+    height: 100vh;
+    width: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: rgba($color-black, 0.8);
+    z-index: 700;
+    opacity: 0;
+    visibility: hidden;
+    transition: all .9s;
+
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+
+    
+
+
+    @include respond(phone){
+        height: 110vh;
+    }
+
+    &:target{ //used to make popups with css and html only. I must study it better to save develop time.
+        opacity: 1;
+        visibility: visible;
+    }
+
+    &__close{
+        &:link,
+        &:visited{
+            color: $color-gray-dark;
+            text-decoration: none;
+            position: absolute;
+            top: 1rem;
+            right: 2.5rem;
+            font-size: 3rem;
+            display: inline-block;
+            transition: color .2s;
+            line-height: 1;
+        }
+
+        &:hover{
+            color: $color-primary-dark;
+        }
+
+    }
+
+    &:target &__content{
+        opacity: 1;
+        transform: translate(-50%, -50%) scale(1);
+    }
+
+    &__content{
+        @include absCenter; // another way of centering stuff
+
+        width: 75%;
+        background-color: $color-white-ish;
+        box-shadow: 0 2rem 3rem rgba($color-black, 0.8);
+        border-radius: .5rem;
+        display: table;
+        overflow: hidden;
+        opacity: 0;
+        transform: translate(-50%, -50%) scale(.2);
+        transition: all .5s .3s;
+
+        @include respond(tab-land){
+             width: 90%;
+        }
+
+        @include respond(tab-port){
+            width: 80%;
+            
+        }
+
+
+    }
+
+    &__left{
+        width: 33.333333%;
+        display: table-cell;
+
+        @include respond(tab-port){
+            display: none;
+        }
+    }
+
+    &__right{
+        padding:3rem 5rem; 
+        width: 66.666667%;
+        display: table-cell;
+        vertical-align: middle;
+
+        @include respond(tab-port){
+            width: 100%;
+            
+        }
+    }
+
+    &__img{
+        display: block;
+        width: 100%;  
+    }
+
+    &__text{
+        font-size: 1.4rem;
+        margin-top: 3rem;
+        margin-bottom: 4rem;
+
+        column-count: 2;
+        column-gap: 4rem;
+        column-rule: .3rem solid $color-gray-light-1;
+
+        hyphens: auto;
+    }
+}
